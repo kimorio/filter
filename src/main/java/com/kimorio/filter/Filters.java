@@ -82,6 +82,30 @@ public interface Filters {
   }
 
   /**
+   * Creates a filter that responds with the first non-{@link FilterResponse#ABSTAIN abstaining} response of its children.
+   *
+   * @param filters the filters
+   * @return an any filter
+   * @since 1.0.0
+   */
+  @Contract(pure = true)
+  static @NotNull FirstFilter first(final @NotNull Filter @NotNull ... filters) {
+    return first(List.of(filters));
+  }
+
+  /**
+   * Creates a filter that responds with the first non-{@link FilterResponse#ABSTAIN abstaining} response of its children.
+   *
+   * @param filters the filters
+   * @return an any filter
+   * @since 1.0.0
+   */
+  @Contract(pure = true)
+  static @NotNull FirstFilter first(final @NotNull List<? extends @NotNull Filter> filters) {
+    return new FirstFilterImpl(filters);
+  }
+
+  /**
    * Creates a filter that returns the inverse response.
    *
    * @param filter a filter
