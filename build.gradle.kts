@@ -1,8 +1,8 @@
 plugins {
   val indraVersion = "2.1.1"
+  id("com.diffplug.spotless") version "6.6.1"
   id("net.kyori.indra") version indraVersion
   id("net.kyori.indra.checkstyle") version indraVersion
-  id("net.kyori.indra.license-header") version indraVersion
   id("net.kyori.indra.publishing") version indraVersion
   id("net.kyori.indra.publishing.sonatype") version indraVersion
   id("net.ltgt.errorprone") version "2.0.2"
@@ -40,13 +40,22 @@ indraSonatype {
   useAlternateSonatypeOSSHost("s01")
 }
 
+spotless {
+  java {
+    endWithNewline()
+    indentWithSpaces(2)
+    licenseHeaderFile(rootProject.file("license_header.txt"))
+    trimTrailingWhitespace()
+  }
+}
+
 repositories {
   mavenCentral()
 }
 
 dependencies {
   checkstyle("ca.stellardrift:stylecheck:0.1")
-  errorprone("com.google.errorprone:error_prone_core:2.13.1")
+  errorprone("com.google.errorprone:error_prone_core:2.14.0")
   compileOnlyApi("org.jetbrains:annotations:23.0.0")
   testImplementation("com.google.guava:guava-testlib:31.1-jre")
   testImplementation(platform("org.junit:junit-bom:5.8.2"))
