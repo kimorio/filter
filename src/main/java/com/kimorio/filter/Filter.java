@@ -30,6 +30,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * @since 1.0.0
  */
+@FunctionalInterface
 public interface Filter {
   /**
    * Query this filter for a response.
