@@ -53,7 +53,7 @@ public interface Filters {
    * @since 1.0.0
    */
   @Contract(pure = true)
-  static @NotNull AllFilter all(final @NotNull List<? extends Filter> filters) {
+  static @NotNull AllFilter all(final @NotNull List<? extends @NotNull Filter> filters) {
     return new AllFilterImpl(filters);
   }
 
@@ -77,7 +77,7 @@ public interface Filters {
    * @since 1.0.0
    */
   @Contract(pure = true)
-  static @NotNull AnyFilter any(final @NotNull List<? extends Filter> filters) {
+  static @NotNull AnyFilter any(final @NotNull List<? extends @NotNull Filter> filters) {
     return new AnyFilterImpl(filters);
   }
 
