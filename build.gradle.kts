@@ -1,6 +1,6 @@
 plugins {
   val indraVersion = "2.1.1"
-  id("com.diffplug.spotless") version "6.6.1"
+  id("com.diffplug.spotless") version "6.9.0"
   id("net.kyori.indra") version indraVersion
   id("net.kyori.indra.checkstyle") version indraVersion
   id("net.kyori.indra.publishing") version indraVersion
@@ -47,6 +47,10 @@ spotless {
     licenseHeaderFile(rootProject.file("license_header.txt"))
     trimTrailingWhitespace()
   }
+}
+
+tasks.named<Jar>(JavaPlugin.JAR_TASK_NAME) {
+  indraGit.applyVcsInformationToManifest(manifest)
 }
 
 repositories {
