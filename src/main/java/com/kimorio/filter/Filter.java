@@ -27,7 +27,7 @@ import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * A filter.
+ * A filter is something that can respond with either "yes", "no", or "don't care" to a question.
  *
  * @since 1.0.0
  */

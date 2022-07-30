@@ -30,6 +30,10 @@ import org.jetbrains.annotations.NotNull;
 /**
  * A filter that always returns the same response.
  *
+ * @see Filters#always(FilterResponse)
+ * @see Filters#allow()
+ * @see Filters#deny()
+ * @see Filters#abstain()
  * @since 1.0.0
  */
 @ApiStatus.NonExtendable
